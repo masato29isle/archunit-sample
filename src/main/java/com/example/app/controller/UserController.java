@@ -1,6 +1,5 @@
 package com.example.app.controller;
 
-import com.example.app.repository.UserRepository;
 import com.example.app.service.UserService;
 import java.util.List;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,12 +18,8 @@ public class UserController {
 
     private final UserService userService;
 
-    // NOTE: 本来 Controller が Repository を直接持つのはレイヤー違反。ハンズオンで直す箇所。
-    private final UserRepository userRepository;
-
-    public UserController(UserService userService, UserRepository userRepository) {
+    public UserController(UserService userService) {
         this.userService = userService;
-        this.userRepository = userRepository;
     }
 
     @GetMapping("/{name}")
@@ -32,9 +27,9 @@ public class UserController {
         return userService.exists(name) ? "OK: " + name : "NOT FOUND: " + name;
     }
 
-    // NOTE: Service を経由せず Repository を直接呼んでいる（レイヤー違反）
+    // Service を経由してデータを取得する
     @GetMapping
     public List<String> listUsers() {
-        return userRepository.findAll();
+        return userService.listUsers();
     }
 }
