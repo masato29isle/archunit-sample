@@ -348,5 +348,5 @@ public class UserHelper {}
 
 ## 参考資料
 
-- ArchUnit User Guide（https://www.archunit.org/userguide/html/000_Index.html）: 公式ガイド。「6. The Library API」に `layeredArchitecture()` の説明がある
-- ArchUnit Examples（https://github.com/TNG/ArchUnit-Examples）: 公式のサンプル集
+- [ArchUnit User Guide](https://www.archunit.org/userguide/html/000_Index.html): 公式ガイド。「6. The Library API」に `layeredArchitecture()` の説明がある
+- [ArchUnit Examples](https://github.com/TNG/ArchUnit-Examples): 公式のサンプル集
